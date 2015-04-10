@@ -60,7 +60,7 @@ def get_allele_counts_read(read,
     '''
     import numpy as np
 
-    if read.is_unmapped or (read.isize == 0):
+    if read.is_unmapped or (paired_end and (read.isize == 0)):
         if VERBOSE >= 3:
             print('Read '+read.qname+': unmapped')
         return
